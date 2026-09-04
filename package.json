@@ -1,0 +1,85 @@
+{
+  "name": "visual-contract",
+  "version": "0.1.0",
+  "description": "Designer-authored visual rules as deterministic checks for web interfaces.",
+  "author": "Make",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/make-make-morck/visual-contract.git"
+  },
+  "homepage": "https://github.com/make-make-morck/visual-contract#readme",
+  "bugs": {
+    "url": "https://github.com/make-make-morck/visual-contract/issues"
+  },
+  "type": "module",
+  "packageManager": "pnpm@11.19.0",
+  "bin": {
+    "visual-contract": "dist/cli.js"
+  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist/*.js",
+    "dist/*.js.map",
+    "dist/*.d.ts",
+    "dist/*.d.ts.map",
+    "!dist/action.*",
+    "action-dist/index.js",
+    "action-dist/397.index.js",
+    "action-dist/package.json",
+    "action.yml",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "build:action": "ncc build src/action.ts -o action-dist --minify",
+    "dev": "tsx src/cli.ts",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "verify": "pnpm run typecheck && pnpm run test && pnpm run build && pnpm run build:action",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "demo:serve": "node examples/demo/server.mjs",
+    "demo:check": "tsx src/cli.ts check http://127.0.0.1:4173/pass.html --config examples/demo/visual-contract.yml --format all",
+    "prepack": "pnpm run build && pnpm run build:action"
+  },
+  "keywords": [
+    "visual-regression",
+    "design-qa",
+    "accessibility",
+    "playwright",
+    "github-action",
+    "frontend-testing"
+  ],
+  "license": "MIT",
+  "engines": {
+    "node": ">=20"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
+  "dependencies": {
+    "commander": "^15.0.0",
+    "pixelmatch": "^7.2.0",
+    "playwright": "^1.62.1",
+    "pngjs": "^7.0.0",
+    "yaml": "^2.9.0"
+  },
+  "devDependencies": {
+    "@actions/core": "^3.0.1",
+    "@types/node": "^26.4.1",
+    "@types/pixelmatch": "^5.2.6",
+    "@types/pngjs": "^6.0.5",
+    "@vercel/ncc": "^0.45.0",
+    "tsx": "^4.23.13",
+    "typescript": "^5.9.3",
+    "vitest": "^5.0.0"
+  }
+}

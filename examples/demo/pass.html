@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VisualContract passing example</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; color: #172033; background: #f5f7fb; }
+    header { display: flex; align-items: center; justify-content: space-between; padding: 20px clamp(20px, 5vw, 72px); color: #ffffff; background: #302080; }
+    nav { display: flex; gap: 16px; }
+    nav a { display: inline-flex; min-width: 76px; min-height: 40px; align-items: center; justify-content: center; color: #ffffff; }
+    main { width: min(1100px, calc(100% - 40px)); margin: 60px auto; }
+    .intro { max-width: 680px; }
+    .cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; margin-top: 40px; }
+    .card { min-width: 0; padding: 24px; border: 1px solid #ccd3e0; border-radius: 12px; background: #ffffff; }
+    .card h2 { margin: 0 0 12px; overflow-wrap: anywhere; }
+    button { min-width: 120px; min-height: 44px; border: 0; border-radius: 8px; color: #ffffff; background: #5636d6; }
+    @media (max-width: 700px) {
+      header { align-items: flex-start; flex-direction: column; gap: 16px; }
+      nav { width: 100%; gap: 8px; }
+      nav a { min-width: 0; flex: 1; }
+      .cards { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <strong>VisualContract</strong>
+    <nav aria-label="Primary"><a href="#rules">Rules</a><a href="#report">Report</a><a href="#action">Action</a></nav>
+  </header>
+  <main>
+    <section class="intro"><h1>Design rules that run in every pull request</h1><p>Turn alignment, spacing, accessibility, overflow, and protected regions into a reviewable contract.</p><button type="button">Run a check</button></section>
+    <section class="cards" id="rules">
+      <article class="card"><h2>Deterministic</h2><p>Core checks run locally without a paid API.</p></article>
+      <article class="card"><h2>Responsive</h2><p>Evaluate the same contract at named viewports.</p></article>
+      <article class="card"><h2>Actionable</h2><p>Send clear findings to terminals and pull requests.</p></article>
+    </section>
+  </main>
+</body>
+</html>

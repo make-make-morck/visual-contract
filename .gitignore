@@ -1,0 +1,16 @@
+node_modules/
+dist/
+visual-contract-results/
+.visual-contract/artifacts/
+.env
+.env.*
+!.env.example
+coverage/
+*.log
+.DS_Store
+
+# action-dist is intentionally committed for GitHub Action releases.
+!action-dist/
+action-dist/src/
+action-dist/*.d.ts
+action-dist/*.d.ts.map

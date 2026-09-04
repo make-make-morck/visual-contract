@@ -1,0 +1,44 @@
+name: VisualContract
+description: Check responsive web interfaces against designer-authored visual rules.
+author: VisualContract contributors
+branding:
+  icon: check-square
+  color: purple
+inputs:
+  url:
+    description: The local or deployed page URL to check.
+    required: true
+  config:
+    description: Path to visual-contract.yml.
+    required: false
+    default: visual-contract.yml
+  output-directory:
+    description: Directory for JSON, Markdown, and image artifacts.
+    required: false
+    default: visual-contract-results
+  fail-on:
+    description: Failure threshold: error, warning, or never.
+    required: false
+    default: error
+  browser-channel:
+    description: Installed Playwright browser channel.
+    required: false
+    default: chrome
+  ai-review:
+    description: Enable opt-in advisory OpenAI screenshot review.
+    required: false
+    default: "false"
+outputs:
+  passed:
+    description: Whether deterministic checks passed.
+  errors:
+    description: Number of deterministic errors.
+  warnings:
+    description: Number of deterministic warnings.
+  report-json:
+    description: Path to the JSON report.
+  report-markdown:
+    description: Path to the Markdown report.
+runs:
+  using: node24
+  main: action-dist/index.js

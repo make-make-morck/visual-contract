@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VisualContract failing example</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; color: #a5a5a5; background: #ffffff; }
+    header { display: flex; align-items: center; justify-content: space-between; width: 112vw; padding: 12px 20px; color: #b4a9df; background: #302080; }
+    nav { display: flex; }
+    nav a { color: #b4a9df; padding: 2px 4px; }
+    nav a:nth-of-type(2) { margin-left: 28px; }
+    nav a:nth-of-type(3) { margin-left: 5px; }
+    main { width: calc(100% - 24px); margin: 40px auto; }
+    .cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; margin-top: 32px; }
+    .card { min-width: 0; padding: 12px; border: 1px solid #eeeeee; }
+    .card h2 { margin: 0; }
+    .card:nth-of-type(2) h2 { margin-top: 18px; }
+    button { width: 18px; height: 18px; padding: 0; border: 0; color: #aaaaaa; background: #eeeeee; }
+    @media (max-width: 700px) { .cards { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <header><strong>VisualContract</strong><nav aria-label="Primary"><a href="#rules">A</a><a href="#report">B</a><a href="#action">C</a></nav></header>
+  <main><h1>Intentional failure fixture</h1><p>This page demonstrates findings that should block a pull request.</p><button type="button" aria-label="Tiny button">+</button>
+    <section class="cards" id="rules"><article class="card"><h2>One</h2><p>Low contrast.</p></article><article class="card"><h2>Two</h2><p>Misaligned.</p></article><article class="card"><h2>Three</h2><p>Low contrast.</p></article></section>
+  </main>
+</body>
+</html>
