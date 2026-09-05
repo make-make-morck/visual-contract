@@ -4,7 +4,7 @@ Thanks for helping turn design intent into reliable, explainable checks.
 
 ## Development setup
 
-1. Install Node.js 20+ and pnpm.
+1. Install Node.js 22+ and pnpm for development. The published CLI supports Node.js 20+.
 2. Run `pnpm install`.
 3. Run `pnpm exec playwright install chromium`.
 4. Run `pnpm test`, `pnpm typecheck`, and `pnpm build`.
